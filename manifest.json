@@ -1,0 +1,89 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_extName__",
+  "version": "1.0.0",
+  "default_locale": "en_US",
+  "description": "__MSG_extDescription__",
+  "icons": {
+    "16": "icon/16.png",
+    "48": "icon/48.png",
+    "128": "icon/128.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "icon/16.png",
+      "48": "icon/48.png",
+      "128": "icon/128.png"
+    },
+    "default_title": "__MSG_extName__",
+		"default_popup": "pages/popup.html"
+  },
+  "author": "Snazzah",
+  "background": {
+    "scripts": [
+      "js/libs/css-parser.js",
+      "js/libs/match.js",
+      "js/libs/semver.js",
+      "js/libs/joi.js",
+      "js/libs/joi-semver.js",
+      "js/constants.js",
+      "js/util/index.js",
+      "js/core/index.js",
+      "js/core/tabs.js",
+      "js/core/css.js",
+      "js/core/storage.js",
+      "js/core/styles.js",
+      "js/background/index.js",
+      "js/background/schemas.js",
+      "js/background/validator.js",
+      "js/background/emitter.js",
+      "js/background/styles.js",
+      "js/background/listeners.js",
+      "js/background/init.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*/*",
+        "http://*/*"
+      ],
+      "run_at": "document_start",
+      "js": [
+        "js/libs/match.js",
+        "js/util/index.js",
+        "js/constants.js",
+        "js/core/index.js",
+        "js/core/storage.js",
+        "js/core/styles.js",
+        "js/util/SettingsPreserve.js",
+        "js/util/Queue.js",
+        "js/content/index.js",
+        "js/content/styles.js",
+        "js/content/listeners.js",
+        "js/content/init.js"
+      ]
+    },
+    {
+      "matches": [
+        "file://*"
+      ],
+      "run_at": "document_start",
+      "js": [
+        "js/util/index.js",
+        "js/constants.js",
+        "js/core/index.js",
+        "js/core/storage.js",
+        "js/core/styles.js",
+        "js/content/file.js"
+      ]
+    }
+  ],
+  "minimum_chrome_version": "65.0.0",
+  "permissions": [
+    "https://*/*", "http://*/*",
+    "tabs", "storage", "unlimitedStorage",
+    "webRequest", "webRequestBlocking"
+  ],
+  "short_name": "Snky"
+}

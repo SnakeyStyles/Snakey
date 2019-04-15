@@ -1,0 +1,87 @@
+.picture-button {
+  width: 30px;
+  height: 30px;
+  margin: 5px 0 0 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+}
+
+.picture-button.view_all {
+  background-image: url(../img/view_all.svg);
+}
+
+.picture-button.settings {
+  background-image: url(../img/settings.svg);
+}
+
+.picture-button.color_toggle {
+  background-image: url(../img/color_toggle.svg);
+}
+
+.picture-button.github {
+  background-image: url(../img/github.png);
+}
+
+.picture-button.add_library {
+  background-image: url(../img/add.svg);
+}
+
+.picture-button.reload {
+  background-image: url(../img/reload.svg);
+}
+
+.picture-button.style_eval {
+  background-image: url(../img/eval.svg);
+}
+
+.picture-button.upload {
+  background-image: url(../img/upload.svg);
+}
+
+.picture-button.add_from_url {
+  background-image: url(../img/add_from_url.svg);
+}
+
+/* Dark Mode */
+
+.dark-mode .picture-button.view_all {
+  background-image: url(../img/darkmode/view_all.svg);
+}
+
+.dark-mode .picture-button.settings {
+  background-image: url(../img/darkmode/settings.svg);
+}
+
+.dark-mode .picture-button.color_toggle {
+  background-image: url(../img/darkmode/color_toggle.svg);
+}
+
+.dark-mode .picture-button.github {
+  background-image: url(../img/darkmode/github.png);
+}
+
+.dark-mode .picture-button.add_library {
+  background-image: url(../img/darkmode/add.svg);
+}
+
+.dark-mode .picture-button.reload {
+  background-image: url(../img/darkmode/reload.svg);
+}
+
+.dark-mode .picture-button.style_eval {
+  background-image: url(../img/darkmode/eval.svg);
+}
+
+.dark-mode .picture-button.upload {
+  background-image: url(../img/darkmode/upload.svg);
+}
+
+/*
+.dark-mode .picture-button.add_from_url {
+  background-image: url(../img/darkmode/add_from_url.svg);
+}
+*/

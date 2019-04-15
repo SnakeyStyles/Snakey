@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html class="main-html">
+  <head>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="picture_buttons.css">
+    <link rel="icon" href="../icon/48.png" type="image/png">
+    <meta charset="utf-8"/>
+    <script type="text/javascript" src="../js/libs/localize.js"></script>
+    <script type="text/javascript" src="../js/libs/popper.js"></script>
+    <script type="text/javascript" src="../js/libs/tippy.js"></script>
+    <script type="text/javascript" src="../js/libs/match.js"></script>
+    <script type="text/javascript" src="../js/libs/fuse.js"></script>
+    <script type="text/javascript" src="../js/libs/css-parser.js"></script>
+    <script type="text/javascript" src="../js/util/index.js"></script>
+    <script type="text/javascript" src="../js/constants.js"></script>
+    <script type="text/javascript" src="../js/core/index.js"></script>
+    <script type="text/javascript" src="../js/core/tabs.js"></script>
+    <script type="text/javascript" src="../js/core/storage.js"></script>
+    <script type="text/javascript" src="../js/core/styles.js"></script>
+    <script type="text/javascript" src="../js/util/settingsPreserve.js"></script>
+    <script type="text/javascript" src="../js/pages/main/doms.js"></script>
+    <script type="text/javascript" src="../js/pages/main/index.js"></script>
+    <script type="text/javascript" src="../js/pages/main/settingsDoms.js"></script>
+    <script type="text/javascript" src="../js/pages/main/settings.js"></script>
+    <script type="text/javascript" src="../js/pages/main/tabPurge.js"></script>
+    <script type="text/javascript" src="../js/pages/main/listeners.js"></script>
+    <script type="text/javascript" src="../js/pages/main/styles.js"></script>
+    <script type="text/javascript" src="../js/pages/main/styleSettings.js"></script>
+    <script type="text/javascript" src="../js/pages/main/add.js"></script>
+    <script type="text/javascript" src="../js/util/formatURL.js"></script>
+    <script type="text/javascript" src="../js/pages/main/init.js"></script>
+  </head>
+  <body class="main-body">
+    <div class="loading-backdrop"><div class="loading-inner"></div></div>
+    <div class="modal-backdrop hide"><div class="modal-inner"><div class="modal"></div></div></div>
+    <div class="sidebar inline">
+      <div class="sidebar-header"></div>
+      <h4 page="styles">
+        <div class="picture-button view_all"></div>
+        <i18n>styles</i18n>
+      </h4>
+      <h4 page="settings">
+        <div class="picture-button settings"></div>
+        <i18n>settings</i18n>
+      </h4>
+      <h4 page="add">
+        <div class="picture-button add_library"></div>
+        <i18n>addStyle</i18n>
+      </h4>
+      <hr>
+      <h4>
+        <div class="picture-button github"></div>
+        <i18n>github</i18n>
+      </h4>
+      <h4 class="dark-mode-click-div">
+        <div class="picture-button color_toggle"></div>
+        <i18n>darkMode</i18n>
+      </h4>
+
+      <div class="credit">
+        <p>
+          <i18n>credit</i18n>
+          <a href="https://snazzah-is.cool">Snazzah</a>
+        </p>
+      </div>
+    </div>
+    <div class="content inline">
+      <div class="styles-page-content page-content">
+        <h2>...</h2>
+        <div class="picture-button reload" data-i18n-tooltip="__MSG_reload__" data-tippy-placement="bottom-end"></div>
+        <input class="search" data-i18n-placeholder="__MSG_search__…">
+      </div>
+      <div class="settings-page-content page-content hidden">
+        <h1><i18n>settings</i18n></h1>
+        <settings-link key="warn_before_delete"></settings-link>
+        <settings-link key="load_over_http"></settings-link>
+        <settings-link key="save_settings_after_delete"></settings-link>
+        <h1><i18n>loadingStyles</i18n></h1>
+        <div class="indent">
+          <settings-link key="enable_js"></settings-link>
+        </div>
+        <h1><i18n>styleInstallRedirect</i18n></h1>
+        <div class="indent">
+          <settings-link key="redirect_links"></settings-link>
+          <settings-link key="redirect_file_links"></settings-link>
+        </div>
+        <h1><i18n>advanced</i18n></h1>
+        <div class="indent">
+          <settings-link key="favicon_service"></settings-link>
+          <settings-link key="debug"></settings-link>
+        </div>
+        <small class="version">...</small>
+      </div>
+      <div class="add-page-content page-content hidden">
+        <input type="file" class="file-service hidden">
+        <div class="add-page-inner">
+          <div class="add-block">
+            <div class="add-block-inner">
+              <h1><i18n>fileUpload</i18n></h1>
+              <div class="picture-button upload"></div>
+            </div>
+          </div>
+          <hr>
+          <div class="add-block">
+            <div class="add-block-inner">
+              <h1><i18n>urlUpload</i18n></h1>
+              <div class="input-box">
+                <input type="text" data-i18n-placeholder="__MSG_enterURL__…"><div class="picture-button add_from_url"></div>
+                <span class="service-tooltip hidden"></span>
+              </div>
+              <div class="break"></div>
+              <b><i18n>autoConverts</i18n></b> <i>GitHub, GitHub Gist, RawGit, Bitbucket, GitLab, PasteBin, Ghostbin, OneClickPaste, Google Drive, Dropbox</i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
