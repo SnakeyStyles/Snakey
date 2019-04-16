@@ -1,5 +1,9 @@
-# ![Snakey](https://files.catbox.moe/e9y5mh.png)
+<div align=center>
+
+# ![Snakey](https://files.catbox.moe/js5ivg.png)
 Put on a new coat for any website.
+
+</div>
 
 <details>
   <summary>Screenshots</summary>
