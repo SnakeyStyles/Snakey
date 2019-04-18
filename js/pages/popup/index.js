@@ -39,6 +39,12 @@ Localize.documentReadyAndLocalisedAsPromised(document)
   let settings = await Snakey.storage.settings();
   if(settings.dark_mode) document.querySelector("html").classList.add('dark-mode');
 
+  // GitHub Button
+  if(document.querySelector('.github')) document.querySelector('.github').addEventListener(
+    'click',
+   () => Snakey.base.tabs.create({ url: 'https://github.com/SnakeyStyles/Snakey' })
+  );
+
   if(!Snakey.tabs.urlSupported(currentTab.url))
     DOMs.styleEmpty(i18n("cannotStyle"), true);
   else {

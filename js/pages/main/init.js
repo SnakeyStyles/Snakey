@@ -94,5 +94,11 @@ Localize.documentReadyAndLocalisedAsPromised(document).then(async () => {
   MainSnakey.add.urlInput().addEventListener('input', MainSnakey.add.onInput);
   document.querySelector('.add_from_url').addEventListener('click', MainSnakey.add.onSubmit);
 
+  // GitHub Button
+  if(document.querySelector('.github')) document.querySelector('.github').addEventListener(
+    'click',
+   () => Snakey.base.tabs.create({ url: 'https://github.com/SnakeyStyles/Snakey' })
+  );
+
   MainSnakey.loading(false);
 });
