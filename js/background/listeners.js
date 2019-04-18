@@ -55,6 +55,8 @@ BackgroundSnakey.updateTabs = async function() {
   tabs.map(t => Snakey.tabs.updateIcon(t))
 }
 
+BackgroundSnakey.updateTabs();
+
 chrome.tabs.onUpdated.addListener(async function(ti, c) {
   let tab = c.url ? c : await Snakey.tabs.get(ti);
   if(!tab) return;

@@ -49,7 +49,9 @@ BackgroundSnakey.SettingsSchemas = {
     let base = {
       type: Joi.string().lowercase().required(),
       title: Joi.string().min(1).max(100).required(),
-      default: Joi.any().required()
+      default: Joi.any().required(),
+      description: Joi.string().min(1).max(200),
+      danger: Joi.boolean()
     };
     Util.objectForEach(obj, (k, v) => base[k] = v);
     return base;

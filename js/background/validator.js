@@ -164,9 +164,6 @@ BackgroundSnakey.Validator.validateFetching = async function(style, { components
     if(!jsURLEvaluation.ok) return jsURLEvaluation.addToData({ style });
     result.js = jsURLEvaluation.js;
   }
-  let cssEvaluation = BackgroundSnakey.Validator.validateCSS(result.css);
-  if(!cssEvaluation.ok) return cssEvaluation;
-  // TODO: validate js somehow?
   return result;
 }
 
@@ -230,15 +227,4 @@ BackgroundSnakey.Validator.validateURL = async function(url) {
     statusText: response.statusText,
     text
   }
-}
-
-BackgroundSnakey.Validator.validateCSS = function(css) {
-  let evaluation = Snakey.css.check(css);
-  console.log("Validating CSS", { css, evaluation });
-  if(evaluation.ok) return { ok: true };
-  return new ValidationError(
-    "CSS_PARSER",
-    { errors: evaluation.errors },
-    [ evaluation.errors.length ]
-  );
 }

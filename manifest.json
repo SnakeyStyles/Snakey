@@ -21,7 +21,6 @@
   "author": "Snazzah",
   "background": {
     "scripts": [
-      "js/libs/css-parser.js",
       "js/libs/match.js",
       "js/libs/semver.js",
       "js/libs/joi.js",
@@ -30,7 +29,6 @@
       "js/util/index.js",
       "js/core/index.js",
       "js/core/tabs.js",
-      "js/core/css.js",
       "js/core/storage.js",
       "js/core/styles.js",
       "js/background/index.js",
@@ -38,8 +36,7 @@
       "js/background/validator.js",
       "js/background/emitter.js",
       "js/background/styles.js",
-      "js/background/listeners.js",
-      "js/background/init.js"
+      "js/background/listeners.js"
     ]
   },
   "content_scripts": [
