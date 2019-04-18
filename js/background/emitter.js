@@ -1,12 +1,12 @@
 BackgroundSnakey.emitter = {};
 
 BackgroundSnakey.emitter.send = function(id, action, data, sender = null, requestID = null) {
-  return chrome.tabs.sendMessage(id, { action, data, sender, requestID });
+  return Snakey.base.tabs.sendMessage(id, { action, data, sender, requestID });
 }
 
 BackgroundSnakey.emitter.sendWithResponse = function(id, action, data) {
   return new Promise((resolve) => {
-    chrome.tabs.sendMessage(id, { action, data }, resolve);
+    Snakey.base.tabs.sendMessage(id, { action, data }, resolve);
   });
 }
 

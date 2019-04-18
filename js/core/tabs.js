@@ -8,18 +8,18 @@ Snakey.tabs.updateIcon = async function(tab) {
       if(v.active && v.style_type === "style") isActive = true;
     });
     if(!Util.isEmpty(styles)) 
-      chrome.browserAction.setIcon({
+      Snakey.base.browserAction.setIcon({
         tabId: tab.id,
         path: `icon/${isActive ? 'active' : 'ready'}.png`
       });
-  } else chrome.browserAction.setIcon({
+  } else Snakey.base.browserAction.setIcon({
     tabId: tab.id,
     path: "icon/disabled.png"
   });
 }
 
 Snakey.tabs.get = function(id) {
-  return Util.promisifyCallback(chrome.tabs.get, id);
+  return Util.promisifyCallback(Snakey.base.tabs.get, id);
 }
 
 Snakey.tabs.urlSupported = function(url) {
@@ -39,6 +39,6 @@ Snakey.tabs.send = function(id, action, data) {
 
 Snakey.tabs.getAll = function() {
   return new Promise((resolve) => {
-    chrome.tabs.query({}, resolve);
+    Snakey.base.tabs.query({}, resolve);
   });
 }

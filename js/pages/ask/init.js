@@ -15,7 +15,7 @@ Localize.documentReadyAndLocalisedAsPromised(document).then(async () => {
   let filePath = url.searchParams.get('file');
   let rawURL = new URL(filePath ? "file://" + filePath : styleURL);
   rawURL.searchParams.append('ignore_snakey', '1');
-  AskSnakey.addFooterButton(i18n('viewRaw'), () => chrome.tabs.create({ url: rawURL.href }));
+  AskSnakey.addFooterButton(i18n('viewRaw'), () => Snakey.base.tabs.create({ url: rawURL.href }));
 
   let response = await PromisedRequest.send(1001, { url: styleURL });
   console.log(response);
@@ -149,7 +149,7 @@ Localize.documentReadyAndLocalisedAsPromised(document).then(async () => {
         MainSnakey.loading(false);
         document.querySelector('.install').remove();
       } else
-        location.href = chrome.runtime.getURL('/pages/main.html?highlight=' + newResponse.id + '#styles');
+        location.href = Snakey.base.runtime.getURL('/pages/main.html?highlight=' + newResponse.id + '#styles');
     }, true);
   }
 }).then(() => MainSnakey.loading(false));

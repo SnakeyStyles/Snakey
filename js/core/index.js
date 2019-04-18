@@ -1,4 +1,9 @@
-let Snakey = {};
+let Snakey = {
+  get browser() {
+    if(navigator.userAgent.includes('Chrome/')) return 'chrome';
+    if(navigator.userAgent.includes('Firefox/')) return 'firefox';
+  }
+};
 
 Snakey.log = function(...a) {
   console.log(`%c[Snakey]`, `color: #fbd333; font-weight: bold; `, ...a)
@@ -18,13 +23,15 @@ Snakey.warn = function(...a) {
 }
 
 Snakey.sendToBackground = function(action, data, requestID = null) {
-  return chrome.runtime.sendMessage({ action, data, requestID });
+  return Snakey.base.runtime.sendMessage({ action, data, requestID });
 }
 
 Snakey.sendToBackgroundWithResponse = function(action, data) {
   return new Promise((resolve) => {
-    chrome.runtime.sendMessage({ action, data }, resolve);
+    Snakey.base.runtime.sendMessage({ action, data }, resolve);
   });
 }
 
-let i18n = window.i18n = chrome.i18n.getMessage;
+Snakey.base = Snakey.browser === 'chrome' ? window.chrome : window.browser;
+
+let i18n = window.i18n = Snakey.base.i18n.getMessage;

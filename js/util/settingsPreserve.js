@@ -12,7 +12,7 @@ Snakey.storage.settings().then(settings => {
   SettingsPreserve.emit('start', settings);
 });
 
-chrome.runtime.onMessage.addListener(
+Snakey.base.runtime.onMessage.addListener(
   function(request) {
     if(request.action === 28) {
       SettingsPreserve.settings[request.data.key] = request.data.value;

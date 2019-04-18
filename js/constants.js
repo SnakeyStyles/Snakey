@@ -20,7 +20,8 @@ let Constants = {
     chrome: 'chromePage',
     file: 'localFile',
     ftp: 'ftpPage',
-    'view-source': 'viewSourcePage'
+    'view-source': 'viewSourcePage',
+    'moz-extension': 'firefoxExtension'
   },
   URLRegex: /^(.*:)\/\/([A-Za-z0-9\-\.]+)(:[0-9]+)?(.*)$/,
   Versions: {

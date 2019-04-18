@@ -1,4 +1,4 @@
-chrome.runtime.onMessage.addListener(
+Snakey.base.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     Snakey.log('Recieved message', { request, sender });
     if (window !== window.top) return;

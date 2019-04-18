@@ -31,7 +31,9 @@ let Settings = {
     type: "boolean",
     title: i18n('settingTitle_redirect_file_links'),
     description: i18n('settingDesc_redirect_file_links') + 
-      ` <a class="chrome-ext">${i18n('chromeSettings')}</a>`
+      (Snakey.browser === 'chrome' ?
+        ` ${i18n('enableFileSetting')} <a class="chrome-ext">${i18n('chromeSettings')}</a>`
+        : '')
   },
   enable_js: {
     type: "boolean",

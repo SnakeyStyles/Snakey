@@ -24,6 +24,7 @@
   "error": { "message": "Error" },
   "key": { "message": "Key" },
   "value": { "message": "Value" },
+  "browser": { "message": "Browser" },
 
   "search": { "message": "Search" },
   "containsJS": { "message": "Contains JavaScript" },
@@ -40,9 +41,10 @@
   "settingTitle_save_settings_after_delete": { "message": "Keep Settings when deleting Styles" },
   "settingDesc_favicon_service": { "message": "The service to retrieve favicons from." },
   "settingDesc_redirect_links": { "message": "When enabled, it will prompt adding style when given a URL to Snakey Manifest." },
-  "settingDesc_redirect_file_links": { "message": "Same as above with file URLs. You can enable this setting here:" },
+  "settingDesc_redirect_file_links": { "message": "Same as above with file URLs." },
   "settingDesc_enable_js": { "message": "Enabling this will allow JavaScript from styles to run on pages. Be careful! and use styles you trust!" },
   "settingDesc_debug": { "message": "Various things will pop-up for debugging purposes." },
+  "enableFileSetting": { "message": "You can enable this setting here:" },
 
   "faviconService1": { "message": "Google" },
   "faviconService2": { "message": "DuckDuckGo" },
@@ -123,5 +125,6 @@
   "chromePage": { "message": "Chrome Page" },
   "localFile": { "message": "Local File" },
   "ftpPage": { "message": "File Transfer Protocol" },
-  "viewSourcePage": { "message": "Chrome Page Source Viewer" }
+  "viewSourcePage": { "message": "Chrome Page Source Viewer" },
+  "firefoxExtension": { "message": "Firefox Extension Page" }
 }

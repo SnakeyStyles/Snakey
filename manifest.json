@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "__MSG_extName__",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "default_locale": "en_US",
   "description": "__MSG_extDescription__",
   "icons": {
@@ -36,7 +36,8 @@
       "js/background/validator.js",
       "js/background/emitter.js",
       "js/background/styles.js",
-      "js/background/listeners.js"
+      "js/background/listeners.js",
+      "js/background/init.js"
     ]
   },
   "content_scripts": [
@@ -63,7 +64,7 @@
     },
     {
       "matches": [
-        "file://*"
+        "file:///*"
       ],
       "run_at": "document_start",
       "js": [
@@ -78,7 +79,7 @@
   ],
   "minimum_chrome_version": "65.0.0",
   "permissions": [
-    "https://*/*", "http://*/*",
+    "<all_urls>",
     "tabs", "storage", "unlimitedStorage",
     "webRequest", "webRequestBlocking"
   ],

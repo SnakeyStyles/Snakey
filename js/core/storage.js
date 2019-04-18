@@ -1,15 +1,15 @@
 Snakey.storage = {};
 
 Snakey.storage.get = function(...a) {
-  return Util.promisifyCallback(chrome.storage.local.get.bind(chrome.storage.local), ...a);
+  return Util.promisifyCallback(Snakey.base.storage.local.get.bind(Snakey.base.storage.local), ...a);
 }
 
 Snakey.storage.set = function(...a) {
-  return Util.promisifyCallback(chrome.storage.local.set.bind(chrome.storage.local), ...a);
+  return Util.promisifyCallback(Snakey.base.storage.local.set.bind(Snakey.base.storage.local), ...a);
 }
 
 Snakey.storage.remove = function(...a) {
-  return Util.promisifyCallback(chrome.storage.local.remove.bind(chrome.storage.local), ...a);
+  return Util.promisifyCallback(Snakey.base.storage.local.remove.bind(Snakey.base.storage.local), ...a);
 }
 
 Snakey.storage.initialize = async function() {

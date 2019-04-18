@@ -77,7 +77,8 @@ Localize.documentReadyAndLocalisedAsPromised(document).then(async () => {
   });
 
   let versionText = document.querySelector('.version');
-  versionText.innerText = i18n('version') + ' ' + chrome.runtime.getManifest().version;
+  versionText.innerText = i18n('version') + ' ' + Snakey.base.runtime.getManifest().version
+    + `/ ${i18n('browser')}: ${Snakey.browser}`;
 
   // Modal
   let modalBackdrop = document.querySelector('.modal-backdrop');

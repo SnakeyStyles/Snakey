@@ -1,4 +1,4 @@
-chrome.runtime.onMessage.addListener(
+Snakey.base.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     BackgroundSnakey.onMessage(request, sender, sendResponse);
     return true;
@@ -42,8 +42,8 @@ BackgroundSnakey.onMessage = async function(request, sender, sendResponse) {
       respond(await Snakey.styles.add({ styleObject: data.style, url: data.url, dry: true }));
       break;
     case 1002:
-      chrome.tabs.remove(sender.tab.id);
-      respond(chrome.tabs.create({ url: data.url }));
+      Snakey.base.tabs.remove(sender.tab.id);
+      respond(Snakey.base.tabs.create({ url: data.url }));
       break;
   }
 }
@@ -55,21 +55,20 @@ BackgroundSnakey.updateTabs = async function() {
   tabs.map(t => Snakey.tabs.updateIcon(t))
 }
 
-BackgroundSnakey.updateTabs();
-
-chrome.tabs.onUpdated.addListener(async function(ti, c) {
+Snakey.base.tabs.onUpdated.addListener(async function(ti, c) {
   let tab = c.url ? c : await Snakey.tabs.get(ti);
   if(!tab) return;
 	Snakey.tabs.updateIcon({ url: tab.url, id: ti });
 });
 
-chrome.tabs.onCreated.addListener(Snakey.tabs.updateIcon);
+Snakey.base.tabs.onCreated.addListener(Snakey.tabs.updateIcon);
 
 // Web Request
 
-chrome.webRequest.onBeforeRequest.addListener(function(info) {
+Snakey.base.webRequest.onBeforeRequest.addListener(function(info) {
   if(!BackgroundSnakey.redirectLinks || info.method !== "GET") return;
   if(info.initiator && info.initiator.startsWith("chrome")) return;
+  if(info.originUrl && info.originUrl.startsWith("moz-extension")) return;
   let url = new URL(info.url);
 
   // Special Website Exclusions
@@ -78,11 +77,18 @@ chrome.webRequest.onBeforeRequest.addListener(function(info) {
   if(url.searchParams.get('ignore_snakey') === "1") return;
 
   if(url.pathname.endsWith('.snakey') || url.pathname.endsWith('.snakey.json')) {
-    let redirectURL = new URL(chrome.extension.getURL('pages/ask.html'));
+    let redirectURL = new URL(Snakey.base.runtime.getURL('pages/ask.html'));
     redirectURL.searchParams.append("url", info.url);
     redirectURL.searchParams.append("requestId", info.requestId);
     console.log("Detected script", { url, info, redirectURL, href: redirectURL.href });
-    return { redirectUrl: redirectURL.href };
+    if(Snakey.brower === 'chrome') return { redirectUrl: redirectURL.href };
+      else {
+        browser.tabs.remove(info.tabId);
+        browser.tabs.create({ url: redirectURL.href });
+      }
   };
   return;
-}, { urls: [ "http://*/*", "https://*/*" ] }, ['blocking']);
+}, {
+  urls: [ "http://*/*", "https://*/*" ],
+  types: ['main_frame']
+}, ['blocking']);

@@ -23,7 +23,7 @@ let PromisedRequest = {
   }
 }
 
-chrome.runtime.onMessage.addListener(
+Snakey.base.runtime.onMessage.addListener(
   function(request) {
     if(window !== window.top) return;
     if(request.requestID && PromisedRequest.callbacks[request.requestID])
