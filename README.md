@@ -15,7 +15,7 @@ Put on a new coat for any website.
   
 </details>
 
-[Wiki](https://github.com/SnakeyStyles/Snakey)
+[Wiki](https://github.com/SnakeyStyles/Snakey/wiki)
 
 ## Features
 - Load styles from URLs and files
